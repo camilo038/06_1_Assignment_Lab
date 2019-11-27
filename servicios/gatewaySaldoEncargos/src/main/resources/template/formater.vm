@@ -1,0 +1,7 @@
+      <typ:prcFdValidarSaldoResponseElement xmlns:typ="http://fiduprod/WsFXF.wsdl/types/">
+         <typ:result>
+            <typ:errnumOut>#if(${exchange.properties.errnumOut})${exchange.properties.errnumOut}#end</typ:errnumOut>
+            <typ:saldoOut>#if(${exchange.properties.saldoOut})${exchange.properties.saldoOut}#end</typ:saldoOut>
+            <typ:descrOut>#if(${exchange.properties.descrOut})${exchange.properties.descrOut}#end</typ:descrOut>
+         </typ:result>
+      </typ:prcFdValidarSaldoResponseElement>

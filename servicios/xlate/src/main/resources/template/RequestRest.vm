@@ -1,0 +1,5 @@
+{
+"moviCtcoNegocio": "#if(${exchange.properties.moviCtcoNegocio})${exchange.properties.moviCtcoNegocio}#end",
+"moviCtcoCiasNego": "#if(${exchange.properties.moviCtcoCiasNego})${exchange.properties.moviCtcoCiasNego}#end",
+"moviEncargo": "#if(${exchange.properties.moviEncargo})${exchange.properties.moviEncargo}#end"
+}

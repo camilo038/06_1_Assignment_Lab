@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://fiduprod/WsFXF.wsdl/types/" xmlns:tns0="http://fiduprod/WsFXF.wsdl/types/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified" targetNamespace="http://fiduprod/WsFXF.wsdl/types/">
+		<xsd:complexType name="prcFdInterfazElement">
+			<xsd:sequence>
+			<xsd:element name="pMoviTipoDoc" nillable="true" type="string"/>
+			<xsd:element name="pMoviCias" nillable="true" type="string"/>
+			<xsd:element name="pMoviCiasOrig" nillable="true" type="string"/>
+			<xsd:element name="pMoviOficina" nillable="true" type="decimal"/>
+			<xsd:element name="pMoviNumero" nillable="true" type="string"/>
+			<xsd:element name="pMoviRenglon" nillable="true" type="decimal"/>
+			<xsd:element name="p1AplicaNx1000" nillable="true" type="string"/>
+			<xsd:element name="iMensajeTercero_inout" nillable="true" type="string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:complexType name="prcFdInterfazResponseElement">
+			<xsd:sequence>
+				<xsd:element name="result" nillable="true" type="tns:WsFXFUser_prcFdInterfaz_Out"/>
+			</xsd:sequence>
+		</xsd:complexType>				
+		<xsd:complexType name="WsFXFUser_prcFdInterfaz_Out">
+		<xsd:sequence>
+			<xsd:element name="errnumOut" nillable="true" type="string"/>
+			<xsd:element name="imensajeerrorOut" nillable="true" type="string"/>
+			<xsd:element name="descrOut" nillable="true" type="string"/>
+			<xsd:element name="imensajeterceroInout" nillable="true" type="string"/>
+			<xsd:element name="ivalidacionOut" nillable="true" type="decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>			
+	<xsd:complexType name="prcFdPrecancelacionResponseElement">
+			<xsd:sequence>
+				<xsd:element name="result" nillable="true" type="tns:WsFXFUser_prcFdPrecancelacion_Out"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:complexType name="WsFXFUser_prcFdPrecancelacion_Out">
+		<xsd:sequence>
+			<xsd:element name="errnumOut" nillable="true" type="string"/>
+			<xsd:element name="descrOut" nillable="true" type="string"/>
+		</xsd:sequence>
+	</xsd:complexType>						
+	<xsd:complexType name="prcFdValidarSaldoElement">
+			<xsd:sequence>
+				<xsd:element name="moviCtcoNegocio" nillable="true" type="string"/>
+				<xsd:element name="moviCtcoCiasNego" nillable="true" type="string"/>
+				<xsd:element name="moviEncargo" nillable="true" type="string"/>
+			</xsd:sequence>
+		</xsd:complexType>								
+	<xsd:complexType name="prcFdValidarSaldoResponseElement">
+			<xsd:sequence>
+				<xsd:element name="result" nillable="true" type="tns:WsFXFUser_prcFdValidarSaldo_Out"/>
+			</xsd:sequence>
+		</xsd:complexType>			
+		<xsd:complexType name="WsFXFUser_prcFdValidarSaldo_Out">
+		<xsd:sequence>
+			<xsd:element name="errnumOut" nillable="true" type="string"/>
+				<xsd:element name="saldoOut" nillable="true" type="string"/>
+			<xsd:element name="descrOut" nillable="true" type="string"/>
+		</xsd:sequence>
+	</xsd:complexType>			
+	<xsd:complexType name="prcInsertaFdTmovimientoElement">
+			<xsd:sequence>
+				<xsd:element name="auxi" nillable="true" type="string"/>
+				<xsd:element name="cias" nillable="true" type="string"/>
+				<xsd:element name="ciasDest" nillable="true" type="string"/>
+				<xsd:element name="descri" nillable="true" type="string"/>
+				<xsd:element name="encargo" nillable="true" type="decimal"/>
+				<xsd:element name="encargoDest" nillable="true" type="decimal"/>
+				<xsd:element name="entidad" nillable="true" type="decimal"/>
+				<xsd:element name="fecha" nillable="true" type="dateTime"/>
+				<xsd:element name="pFpago" nillable="true" type="string"/>
+				<xsd:element name="pOrpaVigencia" nillable="true" type="decimal"/>
+				<xsd:element name="pOrpaNumero" nillable="true" type="string"/>
+				<xsd:element name="pValor" nillable="true" type="decimal"/>
+				<xsd:element name="pGravamen" nillable="true" type="decimal"/>
+				<xsd:element name="pCuenta" nillable="true" type="string"/>
+				<xsd:element name="pMoviCtaDest" nillable="true" type="decimal"/>
+				<xsd:element name="pMoviTpctDest" nillable="true" type="string"/>
+				<xsd:element name="pMoviTpctPag" nillable="true" type="string"/>
+				<xsd:element name="pFondo" nillable="true" type="string"/>
+				<xsd:element name="pTipoReg" nillable="true" type="string"/>
+			</xsd:sequence>
+		</xsd:complexType>							
+		<xsd:complexType name="prcInsertaFdTmovimientoResponseElement">
+			<xsd:sequence>
+				<xsd:element name="result" nillable="true" type="tns:WsFXFUser_prcInsertaFdTmovimiento_Out"/>
+			</xsd:sequence>
+		</xsd:complexType>				
+		<xsd:complexType name="WsFXFUser_prcInsertaFdTmovimiento_Out">
+		<xsd:sequence>
+			<xsd:element name="errnumOut" nillable="true" type="string"/>
+			<xsd:element name="descrOut" nillable="true" type="string"/>
+			<xsd:element name="vmovirenglonOut" nillable="true" type="decimal"/>
+			<xsd:element name="perrorOut" nillable="true" type="string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

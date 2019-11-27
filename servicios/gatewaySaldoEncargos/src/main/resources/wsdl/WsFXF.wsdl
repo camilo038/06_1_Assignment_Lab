@@ -1,0 +1,100 @@
+<!--
+Consumido por PS para validacion de saldos
+http://172.16.0.191:8700/WsFXF-WsFXF-context-root/WsFXFPort?WSDL
+-->
+
+<WL5G3N0:definitions xmlns="" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://fiduprod/WsFXF.wsdl/types/" xmlns:WL5G3N2="http://fiduprod/WsFXF.wsdl" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" name="WsFXF" targetNamespace="http://fiduprod/WsFXF.wsdl" xmlns:tns="http://www.rbm.com.co/esb/comercio/compra/">
+	<WL5G3N0:types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://fiduprod/WsFXF.wsdl/types/" xmlns:tns0="http://fiduprod/WsFXF.wsdl/types/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified" targetNamespace="http://fiduprod/WsFXF.wsdl/types/">
+			<xsd:include schemaLocation="SaldoEncargo.xsd"/>
+		</xsd:schema>
+	</WL5G3N0:types>
+
+
+	<WL5G3N0:message name="WsFXF_prcFdInterfaz">
+		<WL5G3N0:part element="WL5G3N1:prcFdInterfazElement" name="prcFdInterfazElement"/>
+	</WL5G3N0:message>
+
+	<WL5G3N0:message name="WsFXF_prcFdInterfazResponse">
+		<WL5G3N0:part element="WL5G3N1:prcFdInterfazResponseElement" name="prcFdInterfazResponseElement"/>
+	</WL5G3N0:message>
+
+	<WL5G3N0:message name="WsFXF_prcFdValidarSaldo">
+		<WL5G3N0:part element="WL5G3N1:prcFdValidarSaldoElement" name="prcFdValidarSaldoElement"/>
+	</WL5G3N0:message>
+
+	<WL5G3N0:message name="WsFXF_prcFdValidarSaldoResponse">
+		<WL5G3N0:part element="WL5G3N1:prcFdValidarSaldoResponseElement" name="prcFdValidarSaldoResponseElement"/>
+	</WL5G3N0:message>
+
+
+	<WL5G3N0:message name="WsFXF_prcInsertaFdTmovimiento">
+		<WL5G3N0:part element="WL5G3N1:prcInsertaFdTmovimientoElement" name="prcInsertaFdTmovimientoElement"/>
+	</WL5G3N0:message>
+
+	<WL5G3N0:message name="WsFXF_prcInsertaFdTmovimientoResponse">
+		<WL5G3N0:part element="WL5G3N1:prcInsertaFdTmovimientoResponseElement" name="prcInsertaFdTmovimientoResponseElement"/>
+	</WL5G3N0:message>
+
+	<WL5G3N0:portType name="WsFXF">
+		<WL5G3N0:operation name="prcFdInterfaz">
+			<WL5G3N0:input message="WL5G3N2:WsFXF_prcFdInterfaz"/>
+			<WL5G3N0:output message="WL5G3N2:WsFXF_prcFdInterfazResponse"/>
+		</WL5G3N0:operation>
+
+		<WL5G3N0:operation name="prcFdValidarSaldo">
+			<WL5G3N0:input message="WL5G3N2:WsFXF_prcFdValidarSaldo"/>
+			<WL5G3N0:output message="WL5G3N2:WsFXF_prcFdValidarSaldoResponse"/>
+		</WL5G3N0:operation>
+
+		<WL5G3N0:operation name="prcInsertaFdTmovimiento">
+			<WL5G3N0:input message="WL5G3N2:WsFXF_prcInsertaFdTmovimiento"/>
+			<WL5G3N0:output message="WL5G3N2:WsFXF_prcInsertaFdTmovimientoResponse"/>
+		</WL5G3N0:operation>
+	</WL5G3N0:portType>
+
+	<WL5G3N0:binding name="WsFXF" type="WL5G3N2:WsFXF">
+		<WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<WL5G3N0:operation name="prcFdInterfaz">
+			<WL5G3N3:operation soapAction="http://fiduprod/WsFXF.wsdl/prcFdInterfaz"/>
+
+			<WL5G3N0:input>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:input>
+
+			<WL5G3N0:output>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+
+		<WL5G3N0:operation name="prcFdValidarSaldo">
+			<WL5G3N3:operation soapAction="http://fiduprod/WsFXF.wsdl/prcFdValidarSaldo"/>
+
+			<WL5G3N0:input>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:input>
+
+			<WL5G3N0:output>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+
+		<WL5G3N0:operation name="prcInsertaFdTmovimiento">
+			<WL5G3N3:operation soapAction="http://fiduprod/WsFXF.wsdl/prcInsertaFdTmovimiento"/>
+
+			<WL5G3N0:input>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N3:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+	</WL5G3N0:binding>
+
+	<WL5G3N0:service name="WsFXF">
+		<WL5G3N0:port binding="WL5G3N2:WsFXF" name="WsFXFPort">
+			<WL5G3N3:address location="http://172.16.0.191:8700/WsFXF-WsFXF-context-root/WsFXFPort"/>
+		</WL5G3N0:port>
+	</WL5G3N0:service>
+</WL5G3N0:definitions>

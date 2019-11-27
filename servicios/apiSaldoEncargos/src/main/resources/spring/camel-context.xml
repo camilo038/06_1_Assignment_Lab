@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:ctx="http://www.springframework.org/schema/context"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring        http://camel.apache.org/schema/spring/camel-spring.xsd  http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.8.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" id="jsonProvider"/>
+    <bean class="co.com.entelgy.exceptions.ErrorExcepcionInterceptor" id="ErrorExcepcionInterceptor"/>
+    <bean class="co.com.entelgy.processor.RespuestaErrorProcessor" id="respuestaErrorProcessor"/>
+    <camel:errorHandler id="noErrorHandler" type="NoErrorHandler"/>
+    <bean class="org.slf4j.LoggerFactory" factory-method="getLogger" id="rh1">
+        <constructor-arg index="0" value="rh1"/>
+    </bean>
+    <bean class="co.com.entelgy.QuickstartConfiguration" id="prop"/>
+    <ctx:property-placeholder location="classpath:application.properties"/>
+    <bean class="org.apache.camel.component.jms.JmsComponent" id="jms">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="${quickstart.urlBroker}"/>
+                <property name="closeTimeout" value="${quickstart.TimeOutBroker}"/>
+            </bean>
+        </property>
+    </bean>
+    <cxf:rsServer address="{{quickstart.endpoint_inbound_Path}}"
+        id="restApiEnpoint" serviceClass="co.com.entelgy.client.Client">
+        <cxf:providers>
+            <ref bean="jsonProvider"/>
+        </cxf:providers>
+        <cxf:outInterceptors>
+            <ref bean="ErrorExcepcionInterceptor"/>
+        </cxf:outInterceptors>
+    </cxf:rsServer>
+    <camelContext id="CXF-SERVICE-inbound-API" streamCache="true"
+        threadNamePattern="100" xmlns="http://camel.apache.org/schema/spring">
+        <propertyPlaceholder id="properties" location="classpath:application.properties"/>
+        <threadPoolProfile defaultProfile="true" id="changedProfile"
+            maxQueueSize="100" poolSize="1"/>
+        <redeliveryPolicyProfile id="redeliveryPolicy"
+            logRetryAttempted="true" maximumRedeliveries="0"
+            redeliveryDelay="10" retriesExhaustedLogLevel="WARN"/>
+        <onException id="CustomExceptionHandling"
+            redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
+            <exception>org.apache.camel.component.bean.validator.BeanValidationException</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${exception.message}"/>
+            <log loggerRef="rh1" loggingLevel="DEBUG" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS} || ${exception.stacktrace}"/>
+            <setHeader headerName="trazaerror">
+                <simple>${exception.stacktrace}</simple>
+            </setHeader>
+            <setProperty propertyName="codigohttp">
+                <simple>{{quickstart.codigoRespuesta_ErrorGeneral}}</simple>
+            </setProperty>
+            <setProperty propertyName="codigo">
+                <simple>{{quickstart.codigo_ErrorEstructura}}</simple>
+            </setProperty>
+            <setProperty propertyName="descripcion">
+                <simple>{{quickstart.descripcion_ErrorEstructura}}</simple>
+            </setProperty>
+            <bean method="process" ref="respuestaErrorProcessor"/>
+            <stop/>
+        </onException>
+        <onException id="CustomExceptionHandling"
+            redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
+            <exception>co.com.entelgy.exceptions.ProcedureExcepcion</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${exception.message}"/>
+            <log loggerRef="rh1" loggingLevel="DEBUG" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS} || ${exception.stacktrace}"/>
+            <setHeader headerName="trazaerror">
+                <simple>${exception.stacktrace}</simple>
+            </setHeader>
+            <setProperty propertyName="codigohttp">
+                <simple>{{quickstart.codigoRespuesta_ErrorGeneral}}</simple>
+            </setProperty>
+            <setProperty propertyName="codigo">
+                <simple>{{quickstart.codigo_ErrorProcedure}}</simple>
+            </setProperty>
+            <setProperty propertyName="descripcion">
+                <simple>{{quickstart.descripcion_ErrorProcedure}}</simple>
+            </setProperty>
+            <bean method="process" ref="respuestaErrorProcessor"/>
+            <stop/>
+        </onException>
+        <onException id="CustomExceptionHandling"
+            redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
+            <exception>java.lang.Exception</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${exception.message}"/>
+            <log loggerRef="rh1" loggingLevel="DEBUG" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS} || ${exception.stacktrace}"/>
+            <setHeader headerName="trazaerror">
+                <simple>${exception.stacktrace}</simple>
+            </setHeader>
+            <setProperty propertyName="codigohttp">
+                <simple>{{quickstart.codigoRespuesta_ErrorGeneral}}</simple>
+            </setProperty>
+            <setProperty propertyName="codigo">
+                <simple>{{quickstart.codigo_ErrorProveedor}}</simple>
+            </setProperty>
+            <setProperty propertyName="descripcion">
+                <simple>{{quickstart.descripcion_ErrorProveedor}}</simple>
+            </setProperty>
+            <setProperty propertyName="codigoTimeout">
+                <simple>{{quickstart.codigo_ErrorTimeOut}}</simple>
+            </setProperty>
+            <setProperty propertyName="descripcionTimeout">
+                <simple>{{quickstart.descripcion_ErrorTimeOut}}</simple>
+            </setProperty>
+            <bean method="process" ref="respuestaErrorProcessor"/>
+            <stop/>
+        </onException>
+        <onException id="CustomExceptionHandling"
+            redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
+            <exception>java.lang.Exception</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${exception.message}"/>
+            <log loggerRef="rh1" loggingLevel="DEBUG" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS} || ${exception.stacktrace}"/>
+            <setHeader headerName="trazaerror">
+                <simple>${exception.stacktrace}</simple>
+            </setHeader>
+            <setProperty propertyName="codigohttp">
+                <simple>{{quickstart.codigoRespuesta_ErrorGeneral}}</simple>
+            </setProperty>
+            <setProperty propertyName="codigo">
+                <simple>{{quickstart.codigo_ErrorInterno}}</simple>
+            </setProperty>
+            <setProperty propertyName="descripcion">
+                <simple>{{quickstart.descripcion_ErrorInterno}}</simple>
+            </setProperty>
+            <bean method="process" ref="respuestaErrorProcessor"/>
+            <stop/>
+        </onException>
+        <route id="inbound-ROUTE-MAIN">
+            <from id="_from1" uri="cxfrs:bean:restApiEnpoint?bindingStyle=SimpleConsumer"/>
+            <to id="_to1" uri="bean-validator://x"/>
+            <removeHeaders id="_removeHeaders1" pattern="CamelHttp*"/>
+            <setHeader headerName="Content-Type" id="_setHeader1">
+                <constant>application/json</constant>
+            </setHeader>
+            <toD id="_toD1" uri="direct:${header.operationName}"/>
+        </route>
+        <route id="CONSULTA-DATOS">
+            <from id="_from3" uri="direct:validacionSaldo"/>
+            <log id="_log4" loggerRef="rh1" message="=============Mensaje ${body}"/>
+            <marshal id="_marshal1">
+                <json library="Jackson"/>
+            </marshal>
+            <unmarshal id="_unmarshal3">
+                <xmljson encoding="UTF-8" namespaceLenient="false"
+                    removeNamespacePrefixes="true" rootName="person"/>
+            </unmarshal>
+            <to id="_to2" uri="direct:trasn"/>
+        </route>
+        <route id="trasn">
+            <from id="_from2" uri="direct:trasn"/>
+            <log id="_log1" message="(((${body})))"/>
+            <to id="_to3" pattern="InOnly" uri="jms:q.empi.deim.in"/>
+        </route>
+    </camelContext>
+</beans>

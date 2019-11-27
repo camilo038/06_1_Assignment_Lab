@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:ctx="http://www.springframework.org/schema/context"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring        http://camel.apache.org/schema/spring/camel-spring.xsd  http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.8.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean class="org.slf4j.LoggerFactory" factory-method="getLogger" id="rh1">
+        <constructor-arg index="0" value="rh1"/>
+    </bean>
+    <bean class="com.entelgy.gateway.QuickstartConfiguration" id="prop"/>
+    <!-- <ctx:property-placeholder location="classpath:application.properties"/> -->
+    <bean class="org.apache.camel.component.jms.JmsComponent" id="jms">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="${quickstart.jmsBrokerURL}"/>
+                <property name="closeTimeout" value="${quickstart.jmsBrokerTimeOut}"/>
+<!--                 <property name="trustAllPackages" value="true"/> -->
+            </bean>
+        </property>
+    </bean>
+    <camel:errorHandler id="noErrorHandler" type="NoErrorHandler"/>
+    <cxf:cxfEndpoint address="${quickstart.endpointCxfPath}"
+        id="saldoEncargos" serviceClass="fiduprod.wsfxf_wsdl.WsFXF" wsdlURL="wsdl/WsFXF.wsdl">
+        <!-- <cxf:properties> -->
+        <!-- <entry key="schema-validation-enabled" value="true" /> -->
+        <!-- </cxf:properties> -->
+    </cxf:cxfEndpoint>
+    <bean class="fiduprod.wsfxf_wsdl.types.PrcFdValidarSaldoElement" id="getCustomerStatus"/>
+    <camelContext id="SALDOENCARGOS-SOAP" streamCache="false"
+        threadNamePattern="100"
+        xmlns="http://camel.apache.org/schema/spring" xmlns:typ="http://fiduprod/WsFXF.wsdl/types/">
+        <!-- <propertyPlaceholder id="properties" location="classpath:application.properties"/> -->
+        <threadPoolProfile defaultProfile="true" id="changedProfile"
+            maxQueueSize="100" poolSize="1"/>
+        <redeliveryPolicyProfile id="redeliveryPolicy"
+            logRetryAttempted="true" maximumRedeliveries="0"
+            redeliveryDelay="10" retriesExhaustedLogLevel="WARN"/>
+        <onException>
+            <exception>org.apache.camel.ValidationException</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <to uri="direct:controlarErrores"/>
+        </onException>
+        <onException id="CustomExceptionHandling"
+            redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
+            <exception>java.lang.Exception</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <to uri="direct:controlarErrores"/>
+            <stop/>
+        </onException>
+        <route id="GATEWAY-SALDOENCARGOS-ROUTE-MAIN" streamCache="true">
+            <from id="_from1" uri="cxf:bean:saldoEncargos?dataFormat=PAYLOAD"/>
+            <setHeader headerName="Operacion" id="_setHeader1">
+                <xpath>//typ:prcFdValidarSaldoElement</xpath>
+            </setHeader>
+            <to id="_to1" uri="validator:wsdl/SaldoEncargo.xsd?headerName=Operacion"/>
+            <removeHeader headerName="Operacion" id="_removeHeader1"/>
+            <convertBodyTo id="_convertBodyTo1" type="org.w3c.dom.Node"/>
+            <toD id="_toD1" uri="direct:${header.operationName}"/>
+        </route>
+        <route id="RT-PROCESSOR-VALIDASALDO">
+            <from id="_from2" uri="direct:prcFdValidarSaldo"/>
+            <log id="_log3" message="Valida corretamente el Schema"/>
+            <marshal id="_marshal1">
+                <xmljson forceTopLevelObject="true"
+                    removeNamespacePrefixes="true" skipNamespaces="true"/>
+            </marshal>
+            <log id="_log4" message="Envia a la cola"/>
+            <doTry id="_doTry1">
+                <to id="_to6" pattern="InOut" uri="jms:valSaldoEncargoJMS?replyTo=RespuestaSaldoEncargo&amp;replyToType=Exclusive&amp;errorHandlerLoggingLevel=ERROR&amp;receiveTimeout=15000"/>
+<!--                 &amp;transferFault=true&amp;transferException=true&amp;transferExchange=true -->
+                <choice>
+                	<when>
+                		<simple>${header.CamelHttpResponseCode} != '200'</simple>
+                		<unmarshal>
+                			<json library="Jackson"/>
+                		</unmarshal>
+                		<log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${body.get('descripcionError')}"/>			            
+			            <setProperty propertyName="exceptionMessage">
+			                <simple>${body.get('descripcionError')}</simple>
+			            </setProperty>
+			            <to uri="velocity:template/faultBody.vm"/>			           
+			            <log message="(((${body})))"/>
+			            <stop/>
+                	</when>
+                </choice>
+                <log message="siguio"/>
+                <doCatch id="_doCatch1">
+                    <exception>java.lang.Exception</exception>
+                    <handled>
+                        <constant>true</constant>
+                    </handled>
+                    <to id="_to2" uri="direct:controlarErrores"/>
+                    <stop id="_stop1"/>
+                </doCatch>
+            </doTry>
+            <log id="_log5" message="Recibe respesta de la cola"/>
+            <unmarshal id="_unmarshal1">
+                <xmljson rootName="prcFdValidarSaldoElement"/>
+            </unmarshal>
+            <to id="_to3" uri="direct:rsValidarSaldo"/>
+            <stop id="_stop2"/>
+        </route>
+        <route errorHandlerRef="noErrorHandler" id="RT-RESPONSE-VALIDARSALDO">
+            <from id="_from3" uri="direct:rsValidarSaldo"/>
+            <setProperty id="_setProperty1" propertyName="errnumOut">
+                <xpath resultType="String">//errnumOut/text()</xpath>
+            </setProperty>
+            <setProperty id="_setProperty2" propertyName="saldoOut">
+                <xpath resultType="String">//saldoOut/text()</xpath>
+            </setProperty>
+            <setProperty id="_setProperty3" propertyName="descrOut">
+                <xpath resultType="String">//descrOut/text()</xpath>
+            </setProperty>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <simple>${property.errnumOut} == '0'</simple>
+                    <to id="_to4" uri="velocity:template/formater.vm"/>
+                    <log id="_log6" message="Responde el servicio (${body})"/>
+                </when>
+                <otherwise id="_otherwise1">
+                    <throwException exceptionType="java.lang.Exception"
+                        id="_throwException1" message="${property.descrOut}"/>
+                </otherwise>
+            </choice>
+        </route>
+        <route id="RT-CONTROLA-ERRORES">
+            <from id="_from4" uri="direct:controlarErrores"/>
+            <log id="_log1" loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${exception.message}"/>
+            <log id="_log2" loggerRef="rh1" loggingLevel="DEBUG" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS} || ${exception.stacktrace}"/>
+            <setProperty id="_setProperty5" propertyName="exceptionMessage">
+                <simple>${exception.message}</simple>
+            </setProperty>
+            <to id="_to5" uri="velocity:template/faultBody.vm"/>
+            <log id="_log7" message="(((${body})))"/>
+            <stop id="_stop3"/>
+        </route>
+    </camelContext>
+</beans>

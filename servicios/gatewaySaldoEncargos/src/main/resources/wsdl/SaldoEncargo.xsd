@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://fiduprod/WsFXF.wsdl/types/" xmlns:tns0="http://fiduprod/WsFXF.wsdl/types/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified" targetNamespace="http://fiduprod/WsFXF.wsdl/types/">
+		<xsd:include schemaLocation="Datos.xsd"/>
+
+		<xsd:element name="prcFdInterfazElement" type="tns0:prcFdInterfazElement">			
+		</xsd:element>
+		<xsd:element name="prcFdInterfazResponseElement" type="tns0:prcFdInterfazResponseElement">
+		</xsd:element>
+		<xsd:element name="prcFdPrecancelacionResponseElement" type="tns0:prcFdPrecancelacionResponseElement">				
+		</xsd:element>
+		<xsd:element name="prcFdValidarSaldoElement" type="tns0:prcFdValidarSaldoElement">				
+		</xsd:element>
+		<xsd:element name="prcFdValidarSaldoResponseElement" type="tns0:prcFdValidarSaldoResponseElement">				
+		</xsd:element>
+		<xsd:element name="prcInsertaFdTmovimientoElement" type="tns0:prcInsertaFdTmovimientoElement">				
+		</xsd:element>
+		<xsd:element name="prcInsertaFdTmovimientoResponseElement" type="tns0:prcInsertaFdTmovimientoResponseElement">				
+		</xsd:element>		
+</xsd:schema>

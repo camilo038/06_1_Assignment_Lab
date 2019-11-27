@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://fiduprod/WsFXF.wsdl/types/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <typ:prcFdValidarSaldoElement>
+         <typ:moviCtcoNegocio>GL185</typ:moviCtcoNegocio>
+         <typ:moviCtcoCiasNego>CCAEV</typ:moviCtcoCiasNego>
+         <typ:moviEncargo>14857</typ:moviEncargo>
+      </typ:prcFdValidarSaldoElement>
+   </soapenv:Body>
+</soapenv:Envelope>

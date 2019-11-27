@@ -1,0 +1,5 @@
+{
+ "errnumOut":"#if(${exchange.properties.errnumOut})${exchange.properties.errnumOut}#end",
+ "saldoOut":"#if(${exchange.properties.saldoOut})${exchange.properties.saldoOut}#end",
+ "descrOut":"#if(${exchange.properties.descrOut})${exchange.properties.descrOut}#end"
+}
