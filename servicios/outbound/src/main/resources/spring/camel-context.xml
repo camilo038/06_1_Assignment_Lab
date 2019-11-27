@@ -14,7 +14,7 @@
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
                 <property name="brokerURL" value="${quickstart.jmsBrokerURL}"/>
                 <property name="closeTimeout" value="${quickstart.jmsBrokerTimeOut}"/>
-<!--                 <property name="trustAllPackages" value="true"/> -->
+                <!--                 <property name="trustAllPackages" value="true"/> -->
             </bean>
         </property>
     </bean>
@@ -71,23 +71,24 @@
             <log id="_log4" message="Envia a la cola"/>
             <doTry id="_doTry1">
                 <to id="_to6" pattern="InOut" uri="jms:valSaldoEncargoJMS?replyTo=RespuestaSaldoEncargo&amp;replyToType=Exclusive&amp;errorHandlerLoggingLevel=ERROR&amp;receiveTimeout=15000"/>
-<!--                 &amp;transferFault=true&amp;transferException=true&amp;transferExchange=true -->
-                <choice>
-                	<when>
-                		<simple>${header.CamelHttpResponseCode} != '200'</simple>
-                		<unmarshal>
-                			<json library="Jackson"/>
-                		</unmarshal>
-                		<log loggerRef="rh1" loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${body.get('descripcionError')}"/>			            
-			            <setProperty propertyName="exceptionMessage">
-			                <simple>${body.get('descripcionError')}</simple>
-			            </setProperty>
-			            <to uri="velocity:template/faultBody.vm"/>			           
-			            <log message="(((${body})))"/>
-			            <stop/>
-                	</when>
+                <!--                 &amp;transferFault=true&amp;transferException=true&amp;transferExchange=true -->
+                <choice id="_choice2">
+                    <when id="_when2">
+                        <simple>${header.CamelHttpResponseCode} != '200'</simple>
+                        <unmarshal id="_unmarshal2">
+                            <json library="Jackson"/>
+                        </unmarshal>
+                        <log id="_log8" loggerRef="rh1"
+                            loggingLevel="ERROR" message="ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd'T'HH:mm:ss:SSS}} || ${body.get('descripcionError')}"/>
+                        <setProperty id="_setProperty4" propertyName="exceptionMessage">
+                            <simple>${body.get('descripcionError')}</simple>
+                        </setProperty>
+                        <to id="_to7" uri="velocity:template/faultBody.vm"/>
+                        <log id="_log9" message="(((${body})))"/>
+                        <stop id="_stop4"/>
+                    </when>
                 </choice>
-                <log message="siguio"/>
+                <log id="_log10" message="siguio"/>
                 <doCatch id="_doCatch1">
                     <exception>java.lang.Exception</exception>
                     <handled>

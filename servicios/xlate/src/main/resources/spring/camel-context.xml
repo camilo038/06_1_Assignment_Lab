@@ -93,7 +93,7 @@
             <stop/>
         </onException>
         <route id="ROUTE-MAIN">
-            <from id="_from1" uri="jms:q.empi.deim.in	"/>
+            <from id="_from1" uri="jms:q.empi.deim.in "/>
             <to id="_toD1" uri="direct:inPojo"/>
         </route>
         <route id="_route1">
@@ -107,12 +107,11 @@
         </route>
         <route id="trasn">
             <from id="_from2" uri="direct:untoxml"/>
-         
-                        <marshal id="_marshal1">
-                            <camel:jacksonxml allowJmsType="true" unmarshalTypeName="co.com.entelgy.client.NewPerson"/>
-                        </marshal>
+            <marshal id="_marshal1">
+                <camel:jacksonxml allowJmsType="true" unmarshalTypeName="co.com.entelgy.client.NewPerson"/>
+            </marshal>
             <log id="_log3" message=":::::${body}"/>
-            <!--             <to id="_to3" pattern="InOnly" uri="jms:q.empi.deim.in"/> -->
+                        <to id="_to3" pattern="InOnly" uri="jms:q.empi.deim.out"/>
         </route>
     </camelContext>
 </beans>
