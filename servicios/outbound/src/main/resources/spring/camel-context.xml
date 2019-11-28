@@ -53,13 +53,13 @@
         <route id="_route1">
             <from id="_from1" uri="direct:soapdemo"/>
             <setHeader headerName="idcc" id="_setHeader1">
-                <xpath resultType="String">//person/idcc/text()</xpath>
+                <xpath resultType="String">//Person/idcc/text()</xpath>
             </setHeader>
             <setHeader headerName="lastName" id="_setHeader2">
-                <xpath resultType="String">//person/lastName/text()</xpath>
+                <xpath resultType="String">//Person/lastName/text()</xpath>
             </setHeader>
             <setHeader headerName="name" id="_setHeader4">
-                <xpath resultType="String">//person/name/text()</xpath>
+                <xpath resultType="String">//Person/name/text()</xpath>
             </setHeader>
             <log id="_log1" message="Result  ${header.idcc}===  ${header.lastName}=== ${header.name}"/>
             <setHeader headerName="CamelHttpMethod" id="_setHeader3">
