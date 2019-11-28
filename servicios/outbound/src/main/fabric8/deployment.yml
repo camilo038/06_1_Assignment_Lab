@@ -1,16 +1,16 @@
 spec:
   template:
     spec:
-      serviceAccountName: "gatewaysaldoencargos"
+      serviceAccountName: "outbound"
       volumes:
-        - name: "gatewaysaldoencargos"
+        - name: "outbound"
           secret:
             # The secret must be created before deploying this application
-            secretName: "gatewaysaldoencargos"
+            secretName: "outbound"
       containers:
         -
           volumeMounts:
-            - name: "gatewaysaldoencargos"
+            - name: "outbound"
               readOnly: true
               # Mount the secret where spring-cloud-kubernetes is configured to read it
               # see src/main/resources/bootstrap.yml

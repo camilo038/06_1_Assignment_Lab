@@ -1,10 +1,10 @@
 apiVersion: "v1"
 kind: "RoleBinding"
 metadata:
-  name: "gatewaysaldoencargos"
+  name: "outbound"
 roleRef:
   # Add the view role to the service account
   name: "view"
 subjects:
   - kind: "ServiceAccount"
-    name: "gatewaysaldoencargos"
+    name: "outbound"

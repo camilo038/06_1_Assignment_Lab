@@ -1,7 +1,7 @@
 # Startup configuration of Spring-cloud-kubernetes
 spring:
   application:
-    name: gatewaysaldoencargos
+    name: outbound
   cloud:
     kubernetes:
       reload:

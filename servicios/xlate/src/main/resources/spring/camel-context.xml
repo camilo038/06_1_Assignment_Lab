@@ -37,7 +37,7 @@
         <threadPoolProfile defaultProfile="true" id="changedProfile"
             maxQueueSize="100" poolSize="1"/>
         <redeliveryPolicyProfile id="redeliveryPolicy"
-            logRetryAttempted="true" maximumRedeliveries="0"
+            logRetryAttempted="true" maximumRedeliveries="3"
             redeliveryDelay="10" retriesExhaustedLogLevel="WARN"/>
         <onException id="CustomExceptionHandling"
             redeliveryPolicyRef="redeliveryPolicy" useOriginalMessage="true">
@@ -111,7 +111,7 @@
                 <camel:jacksonxml allowJmsType="true" unmarshalTypeName="co.com.entelgy.client.NewPerson"/>
             </marshal>
             <log id="_log3" message=":::::${body}"/>
-                        <to id="_to3" pattern="InOnly" uri="jms:q.empi.deim.out"/>
+            <to id="_to3" pattern="InOnly" uri="jms:q.empi.deim.out"/>
         </route>
     </camelContext>
 </beans>

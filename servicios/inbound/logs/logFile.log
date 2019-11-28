@@ -1159,3 +1159,979 @@ TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
 <td class="LineOfCaller">3051</td>
 <td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) started in 0.887 seconds</td>
 </tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Nov 27 18:58:59 COT 2019</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Date">Date</td>
+<td class="Thread">Thread</td>
+<td class="Level">Level</td>
+<td class="Logger">Logger</td>
+<td class="LineOfCaller">LineOfCaller</td>
+<td class="Message">Message</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Date">18:58:59.998</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">182</td>
+<td class="Message">Static JNDI binding: [jms] = [org.apache.activemq.ActiveMQConnectionFactory@36c88a32]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:00.003</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">137</td>
+<td class="Message">Activating simple JNDI environment</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:00.010</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">243</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:00.010</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">244</td>
+<td class="Message">Testing: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:00.011</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">245</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:00.138</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">583</td>
+<td class="Message">Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 18:59:00 COT 2019]; root of context hierarchy</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:00.197</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.beans.factory.xml.XmlBeanDefinitionReader</td>
+<td class="LineOfCaller">317</td>
+<td class="Message">Loading XML bean definitions from class path resource [spring/camel-context.xml]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:02.354</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.core.xml.AbstractCamelContextFactoryBean</td>
+<td class="LineOfCaller">931</td>
+<td class="Message">Using custom default ThreadPoolProfile with id: changedProfile and implementation: org.apache.camel.model.ThreadPoolProfileDefinition@66ea1466</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:02.443</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.converter.DefaultTypeConverter</td>
+<td class="LineOfCaller">56</td>
+<td class="Message">Loaded 222 type converters</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:02.444</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultExecutorServiceManager</td>
+<td class="LineOfCaller">119</td>
+<td class="Message">Using custom DefaultThreadPoolProfile: ThreadPoolProfile[changedProfile (true) size:1-20, keepAlive: 60 SECONDS, maxQueue: 100, allowCoreThreadTimeOut:false, rejectedPolicy:CallerRuns]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:02.529</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">359</td>
+<td class="Message">Skipping starting CamelContext as isUseAdviceWith is set to true.</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:04.763</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">389</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:04.764</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">390</td>
+<td class="Message">Testing done: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:04.767</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">391</td>
+<td class="Message">Took: 2.234 seconds (2234 millis)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:04.769</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">420</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:04.776</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3316</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutting down</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:04.812</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3405</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) uptime </td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">18:59:04.812</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3406</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutdown in 0.038 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">18:59:04.814</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">984</td>
+<td class="Message">Closing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 18:59:00 COT 2019]; root of context hierarchy</td>
+</tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Nov 27 19:00:14 COT 2019</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Date">Date</td>
+<td class="Thread">Thread</td>
+<td class="Level">Level</td>
+<td class="Logger">Logger</td>
+<td class="LineOfCaller">LineOfCaller</td>
+<td class="Message">Message</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Date">19:00:14.611</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">182</td>
+<td class="Message">Static JNDI binding: [jms] = [org.apache.activemq.ActiveMQConnectionFactory@36c88a32]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:14.615</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">137</td>
+<td class="Message">Activating simple JNDI environment</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:14.620</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">243</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:14.620</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">244</td>
+<td class="Message">Testing: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:14.620</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">245</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:14.707</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">583</td>
+<td class="Message">Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 19:00:14 COT 2019]; root of context hierarchy</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:14.769</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.beans.factory.xml.XmlBeanDefinitionReader</td>
+<td class="LineOfCaller">317</td>
+<td class="Message">Loading XML bean definitions from class path resource [spring/camel-context.xml]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:16.885</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.core.xml.AbstractCamelContextFactoryBean</td>
+<td class="LineOfCaller">931</td>
+<td class="Message">Using custom default ThreadPoolProfile with id: changedProfile and implementation: org.apache.camel.model.ThreadPoolProfileDefinition@66ea1466</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:16.973</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.converter.DefaultTypeConverter</td>
+<td class="LineOfCaller">56</td>
+<td class="Message">Loaded 222 type converters</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:16.973</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultExecutorServiceManager</td>
+<td class="LineOfCaller">119</td>
+<td class="Message">Using custom DefaultThreadPoolProfile: ThreadPoolProfile[changedProfile (true) size:1-20, keepAlive: 60 SECONDS, maxQueue: 100, allowCoreThreadTimeOut:false, rejectedPolicy:CallerRuns]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:17.053</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">359</td>
+<td class="Message">Skipping starting CamelContext as isUseAdviceWith is set to true.</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:17.275</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.builder.AdviceWithTasks</td>
+<td class="LineOfCaller">393</td>
+<td class="Message">AdviceWith replace input from [cxfrs:bean:restApiEnpoint?bindingStyle=SimpleConsumer] --&gt; [direct:inputEndpoint]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:17.277</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.model.RouteDefinition</td>
+<td class="LineOfCaller">299</td>
+<td class="Message">AdviceWith route after: Route(inbound-ROUTE-MAIN)[[From[direct:inputEndpoint]] -&gt; [OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorEstructura}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorEstructura}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorProcedure}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorProcedure}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorProveedor}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorProveedor}}}], SetProperty[codigoTimeout, simple{{{quickstart.codigo_ErrorTimeOut}}}], SetProperty[descripcionTimeout, simple{{{quickstart.descripcion_ErrorTimeOut}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorInterno}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorInterno}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], InterceptSendToEndpoint[direct:inputEndpoint -&gt; [SetHeader[operationName, simple{Simple: validacionSaldo}], Unmarshal[org.apache.camel.model.dataformat.JsonDataFormat@4d6ee47]]], To[bean-validator://x], RemoveHeaders[CamelHttp*], SetHeader[Content-Type, constant{application/json}], DynamicTo[]]]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:17.281</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3007</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is starting</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:17.282</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3147</td>
+<td class="Message">StreamCaching is enabled on CamelContext: CXF-SERVICE-inbound-API</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:17.283</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.management.ManagedManagementStrategy</td>
+<td class="LineOfCaller">192</td>
+<td class="Message">JMX is enabled</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:17.495</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultRuntimeEndpointRegistry</td>
+<td class="LineOfCaller">203</td>
+<td class="Message">Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:18.425</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultStreamCachingStrategy</td>
+<td class="LineOfCaller">316</td>
+<td class="Message">StreamCaching in use with spool directory: C:\Users\Entelgy\AppData\Local\Temp\camel\camel-tmp-7b79bc72-eeeb-4115-a32f-bad4dc3f932d and rules: [Spool &gt; 128K body size]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:18.457</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.hibernate.validator.internal.util.Version</td>
+<td class="LineOfCaller">30</td>
+<td class="Message">HV000001: Hibernate Validator 5.3.5.Final</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:18.772</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: inbound-ROUTE-MAIN started and consuming from: direct://inputEndpoint</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:18.774</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: CONSULTA-DATOS started and consuming from: direct://validacionSaldo</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:18.775</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: trasn started and consuming from: direct://trasn</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:18.776</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3050</td>
+<td class="Message">Total 3 routes, of which 3 are started.</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:18.777</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3051</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) started in 1.496 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.013</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">rh1</td>
+<td class="LineOfCaller">159</td>
+<td class="Message">=============Mensaje co.com.entelgy.model.RequestRest@d16be4f</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.097</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">rh1</td>
+<td class="LineOfCaller">159</td>
+<td class="Message">(((&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;person&gt;&lt;idcc&gt;14857&lt;/idcc&gt;&lt;lastName&gt;camargo&lt;/lastName&gt;&lt;name&gt;camilo&lt;/name&gt;&lt;/person&gt;
+)))</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.232</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">389</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.233</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">390</td>
+<td class="Message">Testing done: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.233</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">391</td>
+<td class="Message">Took: 2.179 seconds (2179 millis)</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.233</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">420</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.237</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3316</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutting down</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.238</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">195</td>
+<td class="Message">Starting to graceful shutdown 3 routes (timeout 10 seconds)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.243</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: trasn shutdown complete, was consuming from: direct://trasn</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.244</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: CONSULTA-DATOS shutdown complete, was consuming from: direct://validacionSaldo</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.245</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: inbound-ROUTE-MAIN shutdown complete, was consuming from: direct://inputEndpoint</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.245</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">259</td>
+<td class="Message">Graceful shutdown of 3 routes completed in 0 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.266</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3405</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) uptime 1.986 seconds</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:00:19.266</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3406</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutdown in 0.029 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:00:19.267</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">984</td>
+<td class="Message">Closing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 19:00:14 COT 2019]; root of context hierarchy</td>
+</tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Nov 27 19:04:28 COT 2019</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Date">Date</td>
+<td class="Thread">Thread</td>
+<td class="Level">Level</td>
+<td class="Logger">Logger</td>
+<td class="LineOfCaller">LineOfCaller</td>
+<td class="Message">Message</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Date">19:04:28.324</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">182</td>
+<td class="Message">Static JNDI binding: [jms] = [org.apache.activemq.ActiveMQConnectionFactory@36c88a32]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:28.329</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.mock.jndi.SimpleNamingContextBuilder</td>
+<td class="LineOfCaller">137</td>
+<td class="Message">Activating simple JNDI environment</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:28.335</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">243</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:28.336</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">244</td>
+<td class="Message">Testing: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:28.336</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">245</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:28.402</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">583</td>
+<td class="Message">Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 19:04:28 COT 2019]; root of context hierarchy</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:28.442</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.beans.factory.xml.XmlBeanDefinitionReader</td>
+<td class="LineOfCaller">317</td>
+<td class="Message">Loading XML bean definitions from class path resource [spring/camel-context.xml]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:30.760</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.core.xml.AbstractCamelContextFactoryBean</td>
+<td class="LineOfCaller">931</td>
+<td class="Message">Using custom default ThreadPoolProfile with id: changedProfile and implementation: org.apache.camel.model.ThreadPoolProfileDefinition@66ea1466</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:30.851</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.converter.DefaultTypeConverter</td>
+<td class="LineOfCaller">56</td>
+<td class="Message">Loaded 222 type converters</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:30.852</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultExecutorServiceManager</td>
+<td class="LineOfCaller">119</td>
+<td class="Message">Using custom DefaultThreadPoolProfile: ThreadPoolProfile[changedProfile (true) size:1-20, keepAlive: 60 SECONDS, maxQueue: 100, allowCoreThreadTimeOut:false, rejectedPolicy:CallerRuns]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:30.944</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">359</td>
+<td class="Message">Skipping starting CamelContext as isUseAdviceWith is set to true.</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:31.152</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.builder.AdviceWithTasks</td>
+<td class="LineOfCaller">393</td>
+<td class="Message">AdviceWith replace input from [cxfrs:bean:restApiEnpoint?bindingStyle=SimpleConsumer] --&gt; [direct:inputEndpoint]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:31.154</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.model.RouteDefinition</td>
+<td class="LineOfCaller">299</td>
+<td class="Message">AdviceWith route after: Route(inbound-ROUTE-MAIN)[[From[direct:inputEndpoint]] -&gt; [OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorEstructura}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorEstructura}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorProcedure}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorProcedure}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorProveedor}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorProveedor}}}], SetProperty[codigoTimeout, simple{{{quickstart.codigo_ErrorTimeOut}}}], SetProperty[descripcionTimeout, simple{{{quickstart.descripcion_ErrorTimeOut}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], OnException[null -&gt; [Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS}} || ${exception.message}], Log[ERROR: ${camelId} || ${routeId} || ${id} || ${date:now:yyyy-MM-dd&#39;T&#39;HH:mm:ss:SSS} || ${exception.stacktrace}], SetHeader[trazaerror, simple{${exception.stacktrace}}], SetProperty[codigohttp, simple{{{quickstart.codigoRespuesta_ErrorGeneral}}}], SetProperty[codigo, simple{{{quickstart.codigo_ErrorInterno}}}], SetProperty[descripcion, simple{{{quickstart.descripcion_ErrorInterno}}}], Bean[ref:respuestaErrorProcessor method:process], Stop]], InterceptSendToEndpoint[direct:inputEndpoint -&gt; [SetHeader[operationName, simple{Simple: validacionSaldo}], Unmarshal[org.apache.camel.model.dataformat.JsonDataFormat@36361ddb]]], To[bean-validator://x], RemoveHeaders[CamelHttp*], SetHeader[Content-Type, constant{application/json}], DynamicTo[]]]</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:31.156</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3007</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is starting</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:31.159</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3147</td>
+<td class="Message">StreamCaching is enabled on CamelContext: CXF-SERVICE-inbound-API</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:31.160</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.management.ManagedManagementStrategy</td>
+<td class="LineOfCaller">192</td>
+<td class="Message">JMX is enabled</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:31.328</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultRuntimeEndpointRegistry</td>
+<td class="LineOfCaller">203</td>
+<td class="Message">Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:32.245</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultStreamCachingStrategy</td>
+<td class="LineOfCaller">316</td>
+<td class="Message">StreamCaching in use with spool directory: C:\Users\Entelgy\AppData\Local\Temp\camel\camel-tmp-8212218c-7abc-48e5-a3ce-20f5dafde695 and rules: [Spool &gt; 128K body size]</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:32.277</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.hibernate.validator.internal.util.Version</td>
+<td class="LineOfCaller">30</td>
+<td class="Message">HV000001: Hibernate Validator 5.3.5.Final</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:32.610</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: inbound-ROUTE-MAIN started and consuming from: direct://inputEndpoint</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:32.612</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: CONSULTA-DATOS started and consuming from: direct://validacionSaldo</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:32.613</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3836</td>
+<td class="Message">Route: trasn started and consuming from: direct://trasn</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:32.614</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3050</td>
+<td class="Message">Total 3 routes, of which 3 are started.</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:32.615</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3051</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) started in 1.458 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:32.896</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">rh1</td>
+<td class="LineOfCaller">159</td>
+<td class="Message">=============Mensaje co.com.entelgy.model.RequestRest@3e1fd62b</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:32.994</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">rh1</td>
+<td class="LineOfCaller">159</td>
+<td class="Message">(((&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;person&gt;&lt;idcc&gt;14857&lt;/idcc&gt;&lt;lastName&gt;camargo&lt;/lastName&gt;&lt;name&gt;camilo&lt;/name&gt;&lt;/person&gt;
+)))</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.119</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">389</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.120</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">390</td>
+<td class="Message">Testing done: testUnit(testInbound.apiTest)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.120</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">391</td>
+<td class="Message">Took: 2.175 seconds (2175 millis)</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.122</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">testInbound.apiTest</td>
+<td class="LineOfCaller">420</td>
+<td class="Message">********************************************************************************</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.134</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3316</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutting down</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.135</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">195</td>
+<td class="Message">Starting to graceful shutdown 3 routes (timeout 10 seconds)</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.143</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: trasn shutdown complete, was consuming from: direct://trasn</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.144</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: CONSULTA-DATOS shutdown complete, was consuming from: direct://validacionSaldo</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.144</td>
+<td class="Thread">100</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">668</td>
+<td class="Message">Route: inbound-ROUTE-MAIN shutdown complete, was consuming from: direct://inputEndpoint</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.145</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.impl.DefaultShutdownStrategy</td>
+<td class="LineOfCaller">259</td>
+<td class="Message">Graceful shutdown of 3 routes completed in 0 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.166</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3405</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) uptime 2.010 seconds</td>
+</tr>
+
+<tr class="info odd">
+<td class="Date">19:04:33.167</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.apache.camel.spring.SpringCamelContext</td>
+<td class="LineOfCaller">3406</td>
+<td class="Message">Apache Camel 2.19.1 (CamelContext: CXF-SERVICE-inbound-API) is shutdown in 0.032 seconds</td>
+</tr>
+
+<tr class="info even">
+<td class="Date">19:04:33.167</td>
+<td class="Thread">main</td>
+<td class="Level">INFO</td>
+<td class="Logger">org.springframework.context.support.ClassPathXmlApplicationContext</td>
+<td class="LineOfCaller">984</td>
+<td class="Message">Closing org.springframework.context.support.ClassPathXmlApplicationContext@12468a38: startup date [Wed Nov 27 19:04:28 COT 2019]; root of context hierarchy</td>
+</tr>

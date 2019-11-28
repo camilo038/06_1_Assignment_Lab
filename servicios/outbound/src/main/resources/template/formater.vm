@@ -1,7 +1,12 @@
-      <typ:prcFdValidarSaldoResponseElement xmlns:typ="http://fiduprod/WsFXF.wsdl/types/">
-         <typ:result>
-            <typ:errnumOut>#if(${exchange.properties.errnumOut})${exchange.properties.errnumOut}#end</typ:errnumOut>
-            <typ:saldoOut>#if(${exchange.properties.saldoOut})${exchange.properties.saldoOut}#end</typ:saldoOut>
-            <typ:descrOut>#if(${exchange.properties.descrOut})${exchange.properties.descrOut}#end</typ:descrOut>
-         </typ:result>
-      </typ:prcFdValidarSaldoResponseElement>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.intelgy.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:doTest>
+         <testInput>
+            <name>${headers.name}</name>
+            <lastName>${headers.lastName}</lastName>
+            <idcc>${headers.idcc}</idcc>
+         </testInput>
+      </ser:doTest>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,4 +1,4 @@
-package apiSaldoEncargos;
+package testOut;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -21,7 +21,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mock.jndi.SimpleNamingContextBuilder;
 
-import co.com.entelgy.model.RequestRest;
 
 
 public class apiTest extends CamelSpringTestSupport {
@@ -32,13 +31,13 @@ public class apiTest extends CamelSpringTestSupport {
 	@Test		
 	public void testUnit() throws Exception {
 
-		File file = new File((PROPERTIES_FILE_DIR + "/request/pruebaconinfo.txt"));
+		File file = new File((PROPERTIES_FILE_DIR + "/request/pruebaconinfo.xml"));
 		file = file.getAbsoluteFile();
 
 //		byte[] bytes = Files.readAllBytes(Paths.get(PROPERTIES_FILE_DIR + "/request/prueba.txt"));
 		System.out.println("COntenido " + file);
 
-		RouteDefinition routeDefinition = context.getRouteDefinition("inbound-ROUTE-MAIN");
+		RouteDefinition routeDefinition = context.getRouteDefinition("simple-route");
 		ActiveMQConnectionFactory jms = new ActiveMQConnectionFactory();
 		jms.setBrokerURL("tcp://localhost:61616");
 		jms.setCloseTimeout(3000);	
@@ -50,9 +49,7 @@ public class apiTest extends CamelSpringTestSupport {
 			public void configure() throws Exception {	
 				jms.createConnection();
 				replaceFromWith("direct:inputEndpoint");
-				interceptSendToEndpoint("direct:inputEndpoint")
-				.setHeader("operationName",simple("validacionSaldo"))
-				.unmarshal().json(JsonLibrary.Jackson,RequestRest.class);
+			
 				
 				
 				
