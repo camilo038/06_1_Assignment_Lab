@@ -19,3 +19,15 @@ mvn clean -DskipTests fabric8:deploy -Popenshift
 
 oc get pods
 Log oc logs
+#Consuming 
+http://localhost:8080/fxf/person/personValidation
+POST  Body Type JSON
+exmaple
+{
+"name": "camiisdeveloper",
+"lastName": "camargo",
+"idcc": 1022332
+}
+
+
+
