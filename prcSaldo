@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "prcSaldo",
+        "version": "1.0.0",
+        "description": "Este API recoge de una cola de mensajería los datos necesarios para realizar la operación de  consulta saldo del cliente de Flexifone haciendo un llamado al procedimiento almacenado pkg_interface_panda.prc_saldo.\\r\\nLa ruta final de este API debe consumir el servicio expuesto por Flexión y hacer la gestión correspondiente de los mensajes de éxito y error para su envío al iniciador de la comunicación\\r\\n"
+    },
+    "paths": {
+        "/esb/consultaSaldo": {
+
+        }
+    },
+    "components": {
+        "schemas": {
+            "Error": {
+                "title": "Root Type for Error",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "codigoError": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "descripcionError": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "codigoError": 500,
+                    "descripcionError": "Error en estructura de la peticion"
+                }
+            },
+            "Request": {
+                "title": "Root Type for Request",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "p_Encargo": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "p_Cartera": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "p_Validacion": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "p_Mensaje_Error": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "p_Encargo": 1,
+                    "p_Cartera": 370,
+                    "p_Validacion": 19092018,
+                    "p_Mensaje_Error": "desa"
+                }
+            }
+        }
+    }
+}
